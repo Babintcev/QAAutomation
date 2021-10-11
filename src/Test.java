@@ -7,5 +7,7 @@ public class Test {
         System.out.println(arr[0]);
         System.out.println(arr[9]);
 
+        int[] arr1 = {3, 4 , 5};
+
     }
 }
