@@ -67,5 +67,40 @@ public class Test {
             sum = sum + arr4[i];// sum += arr4[i];
         }
         System.out.println(sum);
+
+        //Task 4: Print all even array's element
+        int[] arr5 = {1, 2, 3, 5, 8, 13, 21, 34, 55};
+        for (int i = 0; i < arr5.length; i++){
+            if (arr5[i] % 2 == 0){
+                System.out.println(" " + arr5[i]);
+            }
+        }
+
+        //Task 5: Print the sum of all even array's element
+        int[] arr6 = {1, 2, 3, 5, 8, 13, 21, 34, 55};
+        int sumOfEvenElements = 0;
+
+        for (int i = 0; i < arr6.length; i++){
+            if (arr6[i] % 2 == 0){
+                System.out.println(" " + arr6[i]);
+            }
+            sumOfEvenElements = sumOfEvenElements + arr[i];
+        }
+        System.out.println("Sum of the even elements of array " + Arrays.toString(arr6) + " is " + sumOfEvenElements);
+
+        //Task 6: Create an array of 20 even numbers
+        int[] arr7 = new int[20];
+        for (int i = 0; i < arr7.length; i++){
+            //1. get a random  number
+            //2. it has to be an even number
+            int rnd; //the variable is local in the loop
+            do {
+                rnd = (int) (Math.random() * 100); //we define that elements of array will in the range of 0...99
+                //Math.random() returns a double value with a positive sign, greater than or equal to 0.0 and less than 1.0.
+            } while (rnd % 2 != 0); //while the number is odd we are in the loop otherwise we exit the loop
+            arr7[i] = rnd; //assign element to this number
+        }
+        System.out.println("The array of random even integers is " + Arrays.toString(arr7));
+
     }
 }
