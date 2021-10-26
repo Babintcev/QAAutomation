@@ -13,7 +13,7 @@ public class Test {
 
         int[] arr2 = new int[100];
 
-        for (int i = 1; i < arr2.length; i++){
+        for (int i = 1; i < arr2.length; i++) {
             arr2[i] = i + 10;
         }
         System.out.println(Arrays.toString(arr2));
@@ -26,8 +26,8 @@ public class Test {
         System.out.println(Arrays.deepToString(arr3));
         System.out.println(arr3[0][1]); //print element "5"
 
-        for (int i = 0; i < arr3.length; i++){
-            for (int j = 0; j < arr3[i].length; j++){
+        for (int i = 0; i < arr3.length; i++) {
+            for (int j = 0; j < arr3[i].length; j++) {
                 System.out.print(arr3[i][j] + " ");
             }
             System.out.println();
@@ -39,7 +39,7 @@ public class Test {
         int indexOfMax = 0;// index of array's element
         int max = arr4[indexOfMax]; //let the first element is max
 
-        for (int i = 0; i < arr4.length; i++){ //from the first to the last array's elements
+        for (int i = 0; i < arr4.length; i++) { //from the first to the last array's elements
             if (max < arr4[i]) { // if max is less than current array's element
                 max = arr4[i]; //then we assign to max the value of current array's element
                 indexOfMax = i; //and assign to index the index of max array's element - i.
@@ -52,7 +52,7 @@ public class Test {
         int indexOfMin = 0;// index of array's element
         int min = arr4[indexOfMin]; //let the first element is min
 
-        for (int i = 0; i < arr4.length; i++){ //from the first to the last array's elements
+        for (int i = 0; i < arr4.length; i++) { //from the first to the last array's elements
             if (min > arr4[i]) { // if min is more than current array's element
                 min = arr4[i]; //then we assign to min the value of current array's element
                 indexOfMin = i; //and assign to index the index of min array's element - i.
@@ -63,14 +63,14 @@ public class Test {
 
         //Task 3: The sum of all elements of array.
         int sum = 0;
-        for (int i = 0; i < arr4.length; i++){
+        for (int i = 0; i < arr4.length; i++) {
             sum = sum + arr4[i];// sum += arr4[i];
         }
         System.out.println(sum);
 
         //Task 4: Print all even array's element
         int[] arr5 = {1, 2, 3, 5, 8, 13, 21, 34, 55};
-        for (int i = 0; i < arr5.length; i++){
+        for (int i = 0; i < arr5.length; i++) {
             if (arr5[i] % 2 == 0){
                 System.out.println(" " + arr5[i]);
             }
@@ -80,7 +80,7 @@ public class Test {
         int[] arr6 = {1, 2, 3, 5, 8, 13, 21, 34, 55};
         int sumOfEvenElements = 0;
 
-        for (int i = 0; i < arr6.length; i++){
+        for (int i = 0; i < arr6.length; i++) {
             if (arr6[i] % 2 == 0){
                 System.out.println(" " + arr6[i]);
             }
@@ -90,7 +90,7 @@ public class Test {
 
         //Task 6: Create an array of 20 even numbers
         int[] arr7 = new int[20];
-        for (int i = 0; i < arr7.length; i++){
+        for (int i = 0; i < arr7.length; i++) {
             //1. get a random  number
             //2. it has to be an even number
             int rnd; //the variable is local in the loop
@@ -102,5 +102,53 @@ public class Test {
         }
         System.out.println("The array of random even integers is " + Arrays.toString(arr7));
 
+        //Lecture 6
+        int[] arr8 = {1, 2, 3, 6, 8, 9, 0}; //7 elements
+        String str = ""; //
+        for (int i = 0; i < arr8.length; i++) {
+            str += arr8[i] + ","; //14 strings are created here. It's a pure evil!!!
+        }
+        System.out.println(str);
+
+        //Lecture 6.1 - the right solution through StringBuilder
+        int[] arr9 = {1, 2, 3, 6, 8, 9, 0};
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < arr9.length; i++) {
+            stringBuilder.append(arr9[i]).append(",");//StringBuilder saves the array inside itself to generate
+            //the string.
+        }
+        System.out.println(stringBuilder.toString());
+
+        //Lecture 6.2 - reference type
+        int[] aa = {1, 2, 3}; //mutable
+        int[] b = aa;
+
+        b[2] = 0;
+        aa[0] = 0;
+        System.out.println(Arrays.toString(aa));
+        System.out.println(Arrays.toString(b));
+
+        //Lecture 6.3 - add elements of two arrays and print new array
+        int[] a1 = {1, 2, 3};
+        int[] a2 = {9, 8, 7};
+
+        int[] x = new int[a1.length];
+        for (int i = 0; i < a1.length; i++) {
+            x[i] = a1[i] + a2[i];
+        }
+        System.out.println(Arrays.toString(x));
+
+        //Lecture 6.4 - add elements of two arrays of different length and print new array
+        int[] c = {1, 2, 3, 4};
+        int[] d = {9, 8, 7};
+
+        int[] y = new int[c.length];
+        for (int i = 0; i < c.length; i++) {
+            y[i] = c[i];
+            if (i < d.length) { //check while we don't out of array boundary
+                y[i] += d[i];
+            }
+        }
+        System.out.println(Arrays.toString(y));
     }
 }
